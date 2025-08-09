@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Allow important files
+Allow: /api/sitemap
+
+# Sitemap location
+Sitemap: https://your-blog.com/sitemap.xml

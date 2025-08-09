@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for better monetization and UX */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 bg-gray-50;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer components {
+  /* Line clamp utilities for better text truncation */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Custom button styles for better CTR */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 border border-gray-300 transition-all duration-200;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-600 to-accent-700 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-200;
+  }
+  
+  /* Ad container styles */
+  .ad-banner {
+    @apply flex justify-center items-center my-4;
+  }
+  
+  .ad-banner.ad-header {
+    @apply mb-0;
+  }
+  
+  .ad-banner.ad-footer {
+    @apply mt-8 mb-0;
+  }
+  
+  .ad-banner.ad-sidebar {
+    @apply my-6;
+  }
+  
+  /* Content styles for better readability and SEO */
+  .prose-custom {
+    @apply prose prose-lg max-w-none;
+  }
+  
+  .prose-custom h1 {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-6;
+  }
+  
+  .prose-custom h2 {
+    @apply text-2xl md:text-3xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  
+  .prose-custom h3 {
+    @apply text-xl md:text-2xl font-bold text-gray-900 mt-6 mb-3;
+  }
+  
+  .prose-custom p {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+  
+  .prose-custom a {
+    @apply text-primary-600 hover:text-primary-800 underline font-medium;
+  }
+  
+  .prose-custom ul, .prose-custom ol {
+    @apply mb-4;
+  }
+  
+  .prose-custom li {
+    @apply mb-2;
+  }
+  
+  .prose-custom blockquote {
+    @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 my-6;
+  }
+  
+  .prose-custom code {
+    @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  .prose-custom pre {
+    @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-6;
+  }
+  
+  /* Newsletter signup styles */
+  .newsletter-form {
+    @apply bg-gradient-to-r from-primary-50 to-accent-50 p-6 rounded-lg border border-primary-200;
+  }
+  
+  /* Social sharing buttons */
+  .social-share {
+    @apply flex items-center gap-3 py-4;
+  }
+  
+  .social-share button {
+    @apply p-2 rounded-full transition-colors duration-200;
+  }
+  
+  /* Loading states */
+  .loading-skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+  
+  /* Focus styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities for monetization features */
+  .text-money {
+    @apply text-green-600 font-bold;
+  }
+  
+  .bg-money {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .border-money {
+    @apply border-green-300;
+  }
+  
+  /* Conversion-optimized spacing */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* High-converting gradients */
+  .gradient-money {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #d946ef 0%, #a21caf 100%);
+  }
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styles */
+@media print {
+  .ad-banner,
+  .social-share,
+  .newsletter-form {
+    display: none !important;
+  }
+}
