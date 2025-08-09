@@ -1,52 +1,51 @@
 /** @type {import('next').NextConfig} */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
-    formats: ['image/webp', 'image/avif'],
+    domains: ["images.unsplash.com", "via.placeholder.com"],
+    formats: ["image/webp", "image/avif"],
   },
   experimental: {
     optimizeCss: true,
   },
-  // Enable static exports for better performance and SEO
-  output: 'export',
+  // Remove static export for Vercel deployment
   trailingSlash: true,
   // Optimize for monetization and analytics
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
         ],
       },
-    ]
+    ];
   },
   // SEO optimizations
   async rewrites() {
     return [
       {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
+        source: "/sitemap.xml",
+        destination: "/api/sitemap",
       },
-    ]
+    ];
   },
-}
+};
 
-module.exports = withBundleAnalyzer(nextConfig)
+module.exports = withBundleAnalyzer(nextConfig);
